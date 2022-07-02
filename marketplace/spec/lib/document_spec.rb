@@ -1,5 +1,5 @@
-RSpec.describe ValidateDocument do
-  subject { ValidateDocument }
+RSpec.describe Document do
+  subject { Document }
   context 'document with blank value' do
     it 'should return a document invalid' do
       document = ''

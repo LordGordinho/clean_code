@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-06-29T19:45:33-03:00">2022-06-29T19:45:33-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-06-30T11:46:54-03:00">2022-06-30T11:46:54-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.29
+         1.26
        </span>
     </span> hits/line
     )
@@ -39,12 +39,12 @@
   <a name="AllFiles"></a>
 
   <div>
-    <b>1</b> files in total.
+    <b>3</b> files in total.
   </div>
 
   <div class="t-line-summary">
-    <b>41</b> relevant lines,
-    <span class="green"><b>41</b> lines covered</span> and
+    <b>61</b> relevant lines,
+    <span class="green"><b>61</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -71,13 +71,35 @@
       <tbody>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#7692fb8f8282fe117896d6f4b52c838f8d4b0a54" class="src_link" title="spec/lib/validate_document_spec.rb">spec/lib/validate_document_spec.rb</a></td>
+            <td class="strong t-file__name"><a href="#57fb89e665c9a61fbc68450fa306493331221aa1" class="src_link" title="spec/lib/document_spec.rb">spec/lib/document_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">81</td>
             <td class="cell--number">41</td>
             <td class="cell--number">41</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.29</td>
+            
+          </tr>
+        
+          <tr class="t-file">
+            <td class="strong t-file__name"><a href="#0d9b8131e3f3d92e2a306ad6ea11451f65fc5c43" class="src_link" title="spec/lib/order_item_spec.rb">spec/lib/order_item_spec.rb</a></td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">7</td>
+            <td class="cell--number">4</td>
+            <td class="cell--number">4</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">1.00</td>
+            
+          </tr>
+        
+          <tr class="t-file">
+            <td class="strong t-file__name"><a href="#d5d99696d58291f203b17f8d302883c010a8fed4" class="src_link" title="spec/lib/order_spec.rb">spec/lib/order_spec.rb</a></td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">28</td>
+            <td class="cell--number">16</td>
+            <td class="cell--number">16</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">1.25</td>
             
           </tr>
         
@@ -98,9 +120,9 @@
 
       <div class="source_files">
       
-        <div class="source_table" id="7692fb8f8282fe117896d6f4b52c838f8d4b0a54">
+        <div class="source_table" id="57fb89e665c9a61fbc68450fa306493331221aa1">
   <div class="header">
-    <h3>spec/lib/validate_document_spec.rb</h3>
+    <h3>spec/lib/document_spec.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -131,7 +153,7 @@
 
             
 
-            <code class="ruby">RSpec.describe ValidateDocument do</code>
+            <code class="ruby">RSpec.describe Document do</code>
           </li>
         </div>
       
@@ -142,7 +164,7 @@
 
             
 
-            <code class="ruby">  subject { ValidateDocument }</code>
+            <code class="ruby">  subject { Document }</code>
           </li>
         </div>
       
@@ -1006,6 +1028,453 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="81">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="0d9b8131e3f3d92e2a306ad6ea11451f65fc5c43">
+  <div class="header">
+    <h3>spec/lib/order_item_spec.rb</h3>
+    <h4>
+      <span class="green">
+  100.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>4</b> relevant lines.
+      <span class="green"><b>4</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="1">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">RSpec.describe OrderItem do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="2">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  it &#39;should create item of order&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="3">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    order_item = OrderItem.new(SecureRandom.hex(32), 1000, 3)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="4">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="5">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(order_item.total_price).to eq 3000</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="6">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="7">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="d5d99696d58291f203b17f8d302883c010a8fed4">
+  <div class="header">
+    <h3>spec/lib/order_spec.rb</h3>
+    <h4>
+      <span class="green">
+  100.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>16</b> relevant lines.
+      <span class="green"><b>16</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="1">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">RSpec.describe Order do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="2">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  context &#39;order valid&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="3">
+            <span class="hits">4</span>
+            
+
+            
+
+            <code class="ruby">    let!(:order) { Order.new(&#39;573.220.250-16&#39;) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="4">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="5">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    it &#39;should create order with zero item&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="6">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      expect(order.total_price).to eq 0</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="7">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="8">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="9">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    it &#39;should create order with three item&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="10">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      order.add_item(Item.new(&#39;Casa&#39;, &#39;Sofa&#39;, 3000), 2)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="11">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="12">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      expect(order.total_price).to eq 6000</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="13">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="14">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="15">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    it &#39;should create order with three item&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="16">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      order.add_item(Item.new(&#39;Casa&#39;, &#39;Sofa&#39;, 3000), 1)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="17">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      order.add_item(Item.new(&#39;Casa&#39;, &#39;Tv&#39;, 2000), 1)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="18">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      order.add_item(Item.new(&#39;Casa&#39;, &#39;Geladeira&#39;, 4000), 1)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="19">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      order.add_coupon(Coupon.new(&#39;VALE20&#39;, 20))</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="20">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="21">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      expect(order.total_price).to eq 9000 * 0.8</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="22">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="23">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="24">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="25">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  it &#39;should not create order with document invalid&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="26">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    expect{ Order.new(&#39;111.111.111-11&#39;)}.to raise_error(&quot;Document Invalid&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="27">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="28">
             
             
 

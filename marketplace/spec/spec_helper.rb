@@ -1,6 +1,8 @@
-require 'validate_document'
-require 'simplecov'
-SimpleCov.start
+require 'document'
+require 'order'
+require 'item'
+require 'coupon'
+require 'shipping'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/r00t/Projetos/projetos_cursos/clean_code/marketplace/spec/lib/validate_document_spec.rb": {
+      "/home/r00t/Projetos/projetos_cursos/clean_code/marketplace/spec/lib/document_spec.rb": {
         "lines": [
           1,
           13,
@@ -85,8 +85,51 @@
           null,
           null
         ]
+      },
+      "/home/r00t/Projetos/projetos_cursos/clean_code/marketplace/spec/lib/order_item_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/r00t/Projetos/projetos_cursos/clean_code/marketplace/spec/lib/order_spec.rb": {
+        "lines": [
+          1,
+          1,
+          4,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1656542733
+    "timestamp": 1656600414
   }
 }

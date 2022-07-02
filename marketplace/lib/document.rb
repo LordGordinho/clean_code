@@ -1,4 +1,4 @@
-class ValidateDocument
+class Document
   FIRST_DIGIT = 9
   SECOND_DIGIT = 10
   FACTOR_FIRST_DIGIT = 10
