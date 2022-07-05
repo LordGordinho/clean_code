@@ -11,10 +11,10 @@ class Coupon
     @expiration_date = expiration_date ? Date.parse(expiration_date) : nil
   end
 
-  def expired?
+  def expired?(today = Date.today)
     return false unless @expiration_date
 
-    @expiration_date < Date.today
+    @expiration_date < today
   end
 
   def calculate_discount(value)

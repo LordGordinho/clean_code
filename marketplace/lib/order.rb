@@ -6,6 +6,7 @@ class Order
   def initialize(cpf)
     raise Exception.new "Document Invalid" unless Document.document_valid?(cpf)
     
+    @order_items  = []
     @freight = 0
     @cpf = Document.new(cpf)
   end
