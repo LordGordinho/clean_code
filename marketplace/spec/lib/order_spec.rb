@@ -62,7 +62,15 @@ RSpec.describe Order do
       order.add_item(Item.new('Casa', 'Geladeira', 4000, 200, 100, 50, 40), 1)
       order.add_coupon(Coupon.new('VALE20', 20, '2021-01-01'))
 
-      expect(order.total_price).to eq 12449.98
+      expect(order.total_price).to eq 12450
+    end
+
+    it 'should create order with three item without discount' do
+      order.add_item(Item.new('Casa', 'Amplificador', 3000, 100, 30, 10, 3), 2)
+      order.add_item(Item.new('Casa', 'Guitarra', 5000, 100, 50, 50, 20), 1)
+      order.add_item(Item.new('Casa', 'cabo', 4000, 10, 10, 10, 0.9), 1)
+
+      expect(order.freight).to eq 270
     end
   end
 
