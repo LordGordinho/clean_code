@@ -6,7 +6,7 @@ require 'domain/entity/coupon'
 require 'domain/entity/shipping'
 require 'application/use_case/place_order'
 require 'infra/repository/memory/item_repository_memory'
-
+require 'infra/repository/memory/order_repository_memory'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
