@@ -29,7 +29,7 @@ RSpec.describe Order do
       order.add_item(Item.new(1, 'Casa', 'Sofa', 3000), 1)
       order.add_item(Item.new(2, 'Casa', 'Tv', 2000), 1)
       order.add_item(Item.new(3, 'Casa', 'Geladeira', 4000), 1)
-      order.add_coupon(Coupon.new('VALE20', 20, '2021-01-01'))
+      order.add_coupon(Coupon.new('VALE20', 20, (Date.today - 1)))
 
       expect(order.total_price).to eq 9000
     end

@@ -8,7 +8,7 @@ class Coupon
   def initialize(code, percentage, expiration_date = nil)
     @code = code
     @percentage = percentage
-    @expiration_date = expiration_date ? Date.parse(expiration_date) : nil
+    @expiration_date = expiration_date
   end
 
   def expired?(today = Date.today)

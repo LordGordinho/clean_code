@@ -1,12 +1,13 @@
-require 'order_item'
+require 'domain/entity/order_item'
 
 class Order
-  attr_reader :cpf, :order_items, :coupon, :freight
+  attr_reader :cpf, :order_items, :coupon, :freight, :issue_date
 
-  def initialize(cpf)
+  def initialize(cpf, issue_date = Date.today)
     raise Exception.new "Document Invalid" unless Document.document_valid?(cpf)
     
     @order_items  = []
+    @issue_date = issue_date
     @freight = 0
     @cpf = Document.new(cpf)
   end
@@ -22,6 +23,7 @@ class Order
   end
 
   def add_coupon(coupon)
+    return if coupon.expired?(@issue_date)
     @coupon = coupon
   end
 
