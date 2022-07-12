@@ -22,7 +22,7 @@ RSpec.describe PlaceOrder do
 
     place_order =  PlaceOrder.new(ItemRepositoryMemory.new , OrderRepositoryMemory.new, CouponRepositoryMemory.new)
     output = place_order.execute(input)
-    expect(output.total).to eq 6090 - 6090 * 0.2
+    expect(output[:total]).to eq 6090 - 6090 * 0.2
   end
 
   it 'Deve fazer um pedido' do

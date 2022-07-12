@@ -50,4 +50,46 @@ RSpec.describe Order do
   it 'should not create order with document invalid' do
     expect{ Order.new('111.111.111-11')}.to raise_error("Document Invalid")
   end
+
+  it 'should generate a code for order' do
+    order_1 = Order.new('573.220.250-16')
+    order_2 = Order.new('573.220.250-16')
+    order_3 = Order.new('573.220.250-16')
+
+    order_repository_memory = OrderRepositoryMemory.new
+
+    order_repository_memory.save(order_1)
+    order_repository_memory.save(order_2)
+    order_repository_memory.save(order_3)
+
+    expect(order_1.code).to eq "202200000001"
+  end
+
+  it 'should generate a code for order' do
+    order_1 = Order.new('573.220.250-16')
+    order_2 = Order.new('573.220.250-16')
+    order_3 = Order.new('573.220.250-16')
+
+    order_repository_memory = OrderRepositoryMemory.new
+
+    order_repository_memory.save(order_1)
+    order_repository_memory.save(order_2)
+    order_repository_memory.save(order_3)
+
+    expect(order_3.code).to eq "202200000003"
+  end
+
+  it 'should generate a code for order' do
+    order_1 = Order.new('573.220.250-16')
+    order_2 = Order.new('573.220.250-16')
+    order_3 = Order.new('573.220.250-16')
+
+    order_repository_memory = OrderRepositoryMemory.new
+
+    order_repository_memory.save(order_1)
+    order_repository_memory.save(order_2)
+    order_repository_memory.save(order_3)
+
+    expect(order_2.code).to eq "202200000002"
+  end
 end
