@@ -4,6 +4,7 @@ class CouponRepositoryMemory < ItemRepository
   def initialize
     @coupons = [
       Coupon.new("VALE20", 20, nil),
+      Coupon.new("VALE30", 30, Date.parse('2022-01-01'))
     ]
   end
 
