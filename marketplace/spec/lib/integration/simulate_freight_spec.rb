@@ -18,8 +18,9 @@ RSpec.describe SimulateFreight do
     }
 
     item_repository = ItemRepositoryMemory.new
+    freight_calculator = DefaultFreightCalculator.new
 
-    simulate_freight =  SimulateFreight.new(item_repository)
+    simulate_freight =  SimulateFreight.new(item_repository, freight_calculator)
     output = simulate_freight.execute(input)
 
     expect(output[:total_freigth]).to eq 0
@@ -44,8 +45,9 @@ RSpec.describe SimulateFreight do
     }
 
     item_repository = ItemRepositoryMemory.new
+    freight_calculator = DefaultFreightCalculator.new
 
-    simulate_freight =  SimulateFreight.new(item_repository)
+    simulate_freight =  SimulateFreight.new(item_repository, freight_calculator)
     output = simulate_freight.execute(input)
 
     expect(output[:total_freigth]).to eq 260

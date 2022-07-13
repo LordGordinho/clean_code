@@ -8,7 +8,6 @@ class OrderRepositoryMemory < OrderRepository
   end
 
   def save(order)
-    order.generate_code(self)
     @orders << order
   end
 

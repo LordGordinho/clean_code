@@ -5,15 +5,9 @@ class ValidateCoupon
 
   def execute(input)
     coupon = @coupon_repository.find_by_code(input[:coupon])
-    
-    {
-      coupon_valid: coupon_valid?(coupon, input[:date])
-    }
-  end
 
-  private 
-  
-  def coupon_valid?(coupon, date)
-    !coupon.expired?(date)
+    return { coupon_valid: false } unless coupon
+    
+    { coupon_valid: coupon.valid? }
   end
 end

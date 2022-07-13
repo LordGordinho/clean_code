@@ -1,7 +1,7 @@
 require 'securerandom'
 
 class Item
-  attr_reader :description, :price, :category, :item_id, :density
+  attr_reader :description, :price, :category, :item_id, :density, :width, :height, :depth, :weight
 
   def initialize(item_id, category, description, price, width = nil, height = nil, depth = nil, weight = nil)
     @item_id = item_id || SecureRandom.hex(32)
@@ -12,13 +12,6 @@ class Item
     @height = height
     @depth = depth
     @weight = weight
-  end
-  
-  def get_freight
-    return 0 unless @width && @height && @depth
-
-    freight = 1000.0 * size.to_f * (density.to_f/100.0)
-    (freight < 10) ? 10 : freight
   end
 
   def density

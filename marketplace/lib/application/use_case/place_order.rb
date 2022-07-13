@@ -6,7 +6,9 @@ class PlaceOrder
   end
 
   def execute(input)
-    order = Order.new(input[:cpf], input[:date])
+    sequence = @order_repository.orders.count + 1
+
+    order = Order.new(input[:cpf], input[:date], nil, sequence)
     input[:order_items].each do |order_item|
       item = @item_repository.find_by_id(order_item[:id_item]) 
       order.add_item(item, order_item[:quantity])

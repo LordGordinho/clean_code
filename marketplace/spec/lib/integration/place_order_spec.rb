@@ -43,6 +43,7 @@ RSpec.describe PlaceOrder do
             }
         ]
     }
+    
     order_repository = OrderRepositoryMemory.new
     item_repository = ItemRepositoryMemory.new
     coupon_repository = CouponRepositoryMemory.new

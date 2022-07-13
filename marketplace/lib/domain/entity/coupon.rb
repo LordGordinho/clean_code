@@ -12,9 +12,13 @@ class Coupon
   end
 
   def expired?(today = Date.today)
-    return false unless @expiration_date
+    !self.valid?(today = Date.today)
+  end
 
-    @expiration_date < today
+  def valid?(today = Date.today)
+    return true unless @expiration_date
+
+    @expiration_date >= today
   end
 
   def calculate_discount(value)

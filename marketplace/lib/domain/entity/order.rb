@@ -1,15 +1,19 @@
-require 'domain/entity/order_item'
+require_relative 'order_item'
+require_relative 'default_freight_calculator'
+require_relative 'order_code'
 
 class Order
   attr_reader :cpf, :order_items, :coupon, :freight, :issue_date, :code
 
-  def initialize(cpf, issue_date = Date.today)
+  def initialize(cpf, issue_date = Date.today, freight_calculator = DefaultFreightCalculator.new, sequence = 1)
     raise Exception.new "Document Invalid" unless Document.document_valid?(cpf)
     
     @order_items  = []
     @issue_date = issue_date || Date.today
+    @freight_calculator = freight_calculator || DefaultFreightCalculator.new
     @freight = 0
     @cpf = Document.new(cpf)
+    @code = OrderCode.new((issue_date || Date.today), sequence).value
   end
 
   def total_price
@@ -28,19 +32,8 @@ class Order
   end
 
   def add_item(item, quantity)
-    @freight += item.get_freight * quantity;
+    @freight += @freight_calculator.calculate(item) * quantity;
 
     @order_items = [*@order_items, OrderItem.new(item.item_id, item.price, quantity)]
-  end
-
-  def generate_code(order_repository)
-    last_order = order_repository.last_order
-
-    return @code = "#{@issue_date.strftime("%Y")}00000001" unless last_order
-
-    last_order_number_code = last_order.code.split(//).last(8).join.to_i
-    next_number_code = sprintf('%08d', (last_order_number_code + 1))
-
-    @code = "#{@issue_date.strftime("%Y")}#{next_number_code}"
   end
 end

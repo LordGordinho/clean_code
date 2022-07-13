@@ -19,7 +19,8 @@ RSpec.describe Item do
 
   it "Deve criar um item e calcular o frete" do
     item =  Item.new(1, "Instrumentos Musicais", "Guitarra", 1000, 100, 30, 10, 3)
-    freight = item.get_freight
+    freight_calculator = DefaultFreightCalculator.new
+    freight = freight_calculator.calculate(item)
     expect(freight).to eq 30
   end
 end
