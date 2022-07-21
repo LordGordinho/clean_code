@@ -10,11 +10,25 @@ require 'application/use_case/validate_coupon'
 require 'infra/repository/memory/item_repository_memory'
 require 'infra/repository/memory/order_repository_memory'
 require 'infra/repository/memory/coupon_repository_memory'
+require 'infra/repository/database/item_repository_database'
+require 'infra/repository/database/order_repository_database'
+require 'infra/repository/database/coupon_repository_database'
+require 'infra/database/pg_connection'
+require 'factory_bot'
 
 RSpec.configure do |config|
-  # rspec-expectations config goes here. You can use an alternate
-  # assertion/expectation library such as wrong or the stdlib/minitest
-  # assertions if you prefer.
+  config.include FactoryBot::Syntax::Methods
+
+  config.before(:suite) do
+    FactoryBot.find_definitions
+  end
+
+  config.after(:each) do
+    connection = PG.connect( dbname: 'ccca' )
+    connection.exec('TRUNCATE "order"')
+    connection.exec('TRUNCATE order_item')
+  end
+
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods

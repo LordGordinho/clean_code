@@ -4,7 +4,7 @@ class Item
   attr_reader :description, :price, :category, :item_id, :density, :width, :height, :depth, :weight
 
   def initialize(item_id, category, description, price, width = nil, height = nil, depth = nil, weight = nil)
-    @item_id = item_id || SecureRandom.hex(32)
+    @item_id = item_id
     @category = category 
     @description = description
     @price = price

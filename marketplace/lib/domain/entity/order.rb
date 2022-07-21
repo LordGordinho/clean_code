@@ -3,7 +3,7 @@ require_relative 'default_freight_calculator'
 require_relative 'order_code'
 
 class Order
-  attr_reader :cpf, :order_items, :coupon, :freight, :issue_date, :code
+  attr_reader :cpf, :order_items, :coupon, :freight, :issue_date, :code, :sequence
 
   def initialize(cpf, issue_date = Date.today, freight_calculator = DefaultFreightCalculator.new, sequence = 1)
     raise Exception.new "Document Invalid" unless Document.document_valid?(cpf)
@@ -13,6 +13,7 @@ class Order
     @freight_calculator = freight_calculator || DefaultFreightCalculator.new
     @freight = 0
     @cpf = Document.new(cpf)
+    @sequence = sequence
     @code = OrderCode.new((issue_date || Date.today), sequence).value
   end
 
@@ -23,7 +24,7 @@ class Order
 
     return (total_order_price - @coupon.calculate_discount(total_order_price)) + @freight if @coupon 
 
-    total_order_price
+    total_order_price + @freight
   end
 
   def add_coupon(coupon)
