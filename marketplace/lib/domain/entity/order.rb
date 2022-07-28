@@ -1,6 +1,7 @@
-require_relative 'order_item'
-require_relative 'default_freight_calculator'
-require_relative 'order_code'
+require_relative './order_item'
+require_relative './default_freight_calculator'
+require_relative './order_code'
+require_relative './document'
 
 class Order
   attr_reader :cpf, :order_items, :coupon, :freight, :issue_date, :code, :sequence

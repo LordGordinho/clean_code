@@ -1,4 +1,5 @@
-require 'domain/repository/item_repository'
+require_relative '../../../domain/repository/item_repository'
+require_relative '../../../domain/entity/item'
 
 class ItemRepositoryDatabase < ItemRepository
   def initialize(connection)

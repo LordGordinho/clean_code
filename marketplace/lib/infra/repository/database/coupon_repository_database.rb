@@ -1,6 +1,7 @@
-require 'domain/repository/coupon_repository'
+require_relative '../../../domain/repository/coupon_repository'
+require_relative '../../../domain/entity/coupon'
 
-class CouponRepositoryDatabase < ItemRepository
+class CouponRepositoryDatabase < CouponRepository
   def initialize(connection)
     @connection = connection
   end
@@ -11,7 +12,7 @@ class CouponRepositoryDatabase < ItemRepository
         row
       end.first
     end
-		return if coupon_data.empty?
-		Coupon.new(coupon_data["code"], coupon_data["percentage"].to_i, coupon_data["expire_date"].present? ? Date.parse(coupon_data["expire_date"]) : nil)
+		return if coupon_data.nil?
+		Coupon.new(coupon_data["code"], coupon_data["percentage"].to_i, coupon_data["expire_date"].nil? ? nil : Date.parse(coupon_data["expire_date"]))
   end
 end

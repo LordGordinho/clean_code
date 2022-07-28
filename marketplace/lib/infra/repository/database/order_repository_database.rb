@@ -1,4 +1,4 @@
-require 'domain/repository/order_repository'
+require_relative '../../../domain/repository/order_repository'
 
 class OrderRepositoryDatabase < OrderRepository
   def initialize(connection)
@@ -6,7 +6,7 @@ class OrderRepositoryDatabase < OrderRepository
   end
 
 	def save(order)
-		order_data = @connection.query('insert into "order" (code, cpf, issue_date, freight, sequence, coupon) values ($1, $2, $3, $4, $5, $6) returning  *', [order.code, order.cpf, order.issue_date, order.freight, order.sequence, order&.coupon&.code]) do |result|
+		order_data = @connection.query('insert into "order" (code, cpf, issue_date, freight, sequence, coupon) values ($1, $2, $3, $4, $5, $6) returning  *', [order.code, order.cpf.document, order.issue_date, order.freight, order.sequence, order&.coupon&.code]) do |result|
       result.map do |row|
         row
       end.first
