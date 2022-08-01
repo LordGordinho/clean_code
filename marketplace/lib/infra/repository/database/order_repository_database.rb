@@ -29,13 +29,45 @@ class OrderRepositoryDatabase < OrderRepository
   end
 
   def find_by_code(code)
-    order_data = @connection.query('SELECT * FROM "order" WHERE "order".code = $1', [code]) do |result|
+    @connection.query('SELECT * FROM "order" WHERE "order".code = $1', [code]) do |result|
       result.map do |row|
-        row
+        fetch_order(code, row["cpf"], row["issue_date"], row["sequence"])
       end.first
     end
+  end
 
-    order_data
+  def all
+    @connection.query('SELECT * FROM "order"') do |result|
+      result.map do |row|
+        fetch_order(row["code"], row["cpf"], row["issue_date"], row["sequence"])
+      end
+    end
+  end
+
+  def fetch_order(code, cpf, issue_date, sequence)
+    order = Order.new(cpf, Date.parse(issue_date), nil, sequence)
+
+    items = @connection.query('
+      SELECT DISTINCT "item".* FROM "order" 
+      INNER JOIN "order_item" ON "order_item"."id_order" = "order"."id_order" 
+      INNER JOIN "item" ON "order_item"."id_item" = "item"."id_item"
+      WHERE "order"."code" = $1', [code]) do |result|
+      result.map do |row|
+        Item.new(row["id_item"], row["category"], row["description"], row["price"].to_f, row["width"].to_f, row["height"].to_f, row["length"].to_f, row["weight"].to_f)
+      end
+    end
+
+    @connection.query('
+      SELECT DISTINCT "order_item".* FROM "order" 
+      INNER JOIN "order_item" ON "order_item"."id_order" = "order"."id_order" 
+      WHERE "order"."code" = $1', [code]) do |result|
+      result.each do |row|
+        item = items.find { |item| item.item_id == row["id_item"]}
+        order.add_item(item, row["quantity"].to_f)
+      end
+    end
+
+    order
   end
 
   # def orders
