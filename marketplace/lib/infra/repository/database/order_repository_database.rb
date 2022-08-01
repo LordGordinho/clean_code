@@ -28,6 +28,16 @@ class OrderRepositoryDatabase < OrderRepository
 		order_data["count"].to_i
   end
 
+  def find_by_code(code)
+    order_data = @connection.query('SELECT * FROM "order" WHERE "order".code = $1', [code]) do |result|
+      result.map do |row|
+        row
+      end.first
+    end
+
+    order_data
+  end
+
   # def orders
   #   orders_data = @connection.query('SELECT * FROM "order"') do |result|
   #     result.map do |row|
