@@ -1,9 +1,8 @@
 RSpec.describe PlaceOrder do
   let!(:connection) { PgConnection.instance }
   let!(:order_repository) { OrderRepositoryDatabase.new(connection) }
-  let!(:item_repository) { ItemRepositoryDatabase.new(connection) }
-  let!(:coupon_repository) { CouponRepositoryDatabase.new(connection) }
-  let!(:place_order) { PlaceOrder.new(item_repository, order_repository, coupon_repository) }
+  let!(:repository_factory_database) { RepositoryFactoryDatabase.new }
+  let!(:place_order) { PlaceOrder.new(repository_factory_database) }
 
   it 'Deve fazer um pedido' do
     input = {
@@ -18,7 +17,7 @@ RSpec.describe PlaceOrder do
                 "quantity" => 1
             },
             {
-                "id_item" => 3,
+                "id_item" => 3, 
                 "quantity" => 3
             }
         ],

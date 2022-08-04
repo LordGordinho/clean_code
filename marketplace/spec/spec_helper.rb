@@ -16,6 +16,7 @@ require 'infra/repository/database/item_repository_database'
 require 'infra/repository/database/order_repository_database'
 require 'infra/repository/database/coupon_repository_database'
 require 'infra/database/pg_connection'
+require 'infra/factory/repository_factory_database'
 require 'factory_bot'
 
 RSpec.configure do |config|

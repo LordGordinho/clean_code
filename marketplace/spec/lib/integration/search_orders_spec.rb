@@ -1,10 +1,9 @@
 RSpec.describe SearchOrders do
   let!(:connection) { PgConnection.instance }
   let!(:order_repository) { OrderRepositoryDatabase.new(connection) }
+  let!(:repository_factory_database) { RepositoryFactoryDatabase.new }
+  let!(:place_order) { PlaceOrder.new(repository_factory_database) }
   let!(:search_order) { SearchOrders.new(order_repository) }
-  let!(:item_repository) { ItemRepositoryDatabase.new(connection) }
-  let!(:coupon_repository) { CouponRepositoryDatabase.new(connection) }
-  let!(:place_order) { PlaceOrder.new(item_repository, order_repository, coupon_repository) }
 
   before(:each) do
     input = {

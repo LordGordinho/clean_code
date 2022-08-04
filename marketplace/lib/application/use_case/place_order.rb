@@ -1,10 +1,10 @@
 require_relative '../../domain/entity/order.rb'
 
 class PlaceOrder
-  def initialize(item_repository, order_repository, coupon_repository)
-    @item_repository = item_repository
-    @order_repository = order_repository
-    @coupon_repository = coupon_repository
+  def initialize(repository_factory)
+    @item_repository = repository_factory.create_item_repository
+    @order_repository = repository_factory.create_order_repository
+    @coupon_repository = repository_factory.create_coupon_repository
   end
 
   def execute(input)
