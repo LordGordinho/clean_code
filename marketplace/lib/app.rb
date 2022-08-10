@@ -4,7 +4,7 @@ require_relative 'infra/factory/repository_factory_database'
 
 require 'sinatra'
 
-repository_factory = RepositoryFactory.new
+repository_factory = RepositoryFactoryDatabase.new
 http = SinatraAdapter.new
 route_config = RouteConfig.new(http, repository_factory)
 http.run

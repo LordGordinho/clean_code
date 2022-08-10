@@ -1,6 +1,6 @@
 class ValidateCoupon
-  def initialize(coupon_repository)
-    @coupon_repository = coupon_repository
+  def initialize(repository_factory)
+    @coupon_repository = repository_factory.create_coupon_repository
   end
 
   def execute(input)
