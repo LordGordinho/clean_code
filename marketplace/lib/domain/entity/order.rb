@@ -6,7 +6,7 @@ require_relative './document'
 class Order
   attr_reader :cpf, :order_items, :coupon, :freight, :issue_date, :code, :sequence
 
-  def initialize(cpf, issue_date = Date.today, freight_calculator = DefaultFreightCalculator.new, sequence = 1)
+  def initialize(cpf, issue_date = nil, freight_calculator = DefaultFreightCalculator.new, sequence = 1)
     raise Exception.new "Document Invalid" unless Document.document_valid?(cpf)
     
     @order_items  = []
@@ -15,7 +15,7 @@ class Order
     @freight = 0
     @cpf = Document.new(cpf)
     @sequence = sequence
-    @code = OrderCode.new((issue_date || Date.today), sequence).value
+    @code = OrderCode.new(issue_date, sequence).value
   end
 
   def total_price

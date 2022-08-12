@@ -21,7 +21,7 @@ RSpec.describe PlaceOrder do
                 "quantity" => 3
             }
         ],
-        "date" => "2021-12-10",
+        "date" => Date.parse("2021-12-10"),
         "coupon" => "VALE20"
     }
 
@@ -46,7 +46,7 @@ RSpec.describe PlaceOrder do
                 "quantity" => 3
             }
         ],
-        "date" => "2021-12-10"
+        "date" => Date.parse("2021-12-10")
     }
 
     output = place_order.execute(input)

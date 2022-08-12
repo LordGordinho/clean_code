@@ -22,7 +22,7 @@ RSpec.describe AllOrders do
               "quantity" => 3
           }
       ],
-      "date" => "2022-12-10",
+      "date" => Date.parse("2022-12-10"),
       "coupon" => "VALE20"
     }
 
@@ -44,7 +44,7 @@ RSpec.describe AllOrders do
               "quantity" => 3
           }
       ],
-      "date" => "2022-12-10",
+      "date" => Date.parse("2022-12-10"),
       "coupon" => "VALE20"
     }
     

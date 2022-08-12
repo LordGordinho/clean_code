@@ -6,7 +6,7 @@ class OrderRepositoryDatabase < OrderRepository
   end
 
 	def save(order)
-		order_data = @connection.query('insert into "order" (code, cpf, issue_date, freight, sequence, coupon) values ($1, $2, $3, $4, $5, $6) returning  *', [order.code, order.cpf.document, order.issue_date, order.freight, order.sequence, order&.coupon&.code]) do |result|
+		order_data = @connection.query('insert into "order" (code, cpf, issue_date, freight, sequence, coupon, total) values ($1, $2, $3, $4, $5, $6, $7) returning  *', [order.code, order.cpf.document, order.issue_date, order.freight, order.sequence, order&.coupon&.code, order.total_price]) do |result|
       result.map do |row|
         row
       end.first
@@ -69,16 +69,4 @@ class OrderRepositoryDatabase < OrderRepository
 
     order
   end
-
-  # def orders
-  #   orders_data = @connection.query('SELECT * FROM "order"') do |result|
-  #     result.map do |row|
-  #       row
-  #     end.first
-  #   end
-
-  #   orders_data.map do |order_data|
-      
-  #   end
-  # end
 end

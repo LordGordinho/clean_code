@@ -5,7 +5,6 @@ class AllOrders
 
   def execute(input)
     orders = @repository_order.all
-    p orders
 
     {
       "orders" => orders.map do |order| 

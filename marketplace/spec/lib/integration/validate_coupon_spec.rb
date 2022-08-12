@@ -6,7 +6,7 @@ RSpec.describe ValidateCoupon do
   it 'should validate a coupon' do
     input = {
       "coupon" => 'VALE20',
-      "date" => Date.today.to_s
+      "date" => Date.today
     }
 
     output = validate_coupon.execute(input)
