@@ -3,11 +3,12 @@ require_relative '../controller/place_order_controller'
 require_relative '../controller/simulate_freight_controller'
 require_relative '../controller/get_order_controller'
 require_relative '../controller/get_orders_controller'
+require_relative '../../application/query/get_item'
 
 require_relative 'http'
 
 class RouteConfig < Http
-  def initialize(http, repository_factory, order_dao)
+  def initialize(http, repository_factory, order_dao, item_dao)
     http.on('/orders', "post") do
       body = JSON.parse request.body.read
       PlaceOrderController.new(repository_factory).execute(body)
@@ -31,6 +32,10 @@ class RouteConfig < Http
 
     http.on('/orders', 'get') do
       GetOrdersController.new(order_dao).execute(params["code"])
+    end
+
+    http.on('/items', 'get') do
+      GetItem.new(item_dao).execute.to_json
     end
   end
 end

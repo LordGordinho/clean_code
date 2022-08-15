@@ -1,6 +1,7 @@
 require 'sinatra/base'
+require_relative 'http'
 
-class SinatraAdapter 
+class SinatraAdapter < Http
   attr_reader :routes_config
   def initialize
     @routes_config = []
