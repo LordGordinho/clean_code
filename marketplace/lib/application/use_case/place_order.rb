@@ -1,10 +1,12 @@
 require_relative '../../domain/entity/order.rb'
+require_relative '../../domain/event/order_placed'
 
 class PlaceOrder
-  def initialize(repository_factory)
+  def initialize(repository_factory, broker)
     @item_repository = repository_factory.create_item_repository
     @order_repository = repository_factory.create_order_repository
     @coupon_repository = repository_factory.create_coupon_repository
+    @broker = broker
   end
 
   def execute(input)
@@ -23,6 +25,7 @@ class PlaceOrder
     end
 
     @order_repository.save(order)
+    @broker.publish(OrderPlaced.new(order))
 
     { "total" => order.total_price }
   end

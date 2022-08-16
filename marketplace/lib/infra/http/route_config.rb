@@ -8,10 +8,10 @@ require_relative '../../application/query/get_item'
 require_relative 'http'
 
 class RouteConfig < Http
-  def initialize(http, repository_factory, order_dao, item_dao)
+  def initialize(http, repository_factory, order_dao, item_dao, broker)
     http.on('/orders', "post") do
       body = JSON.parse request.body.read
-      PlaceOrderController.new(repository_factory).execute(body)
+      PlaceOrderController.new(repository_factory, broker).execute(body)
     end
 
     http.on('/simulate_freight', "post") do

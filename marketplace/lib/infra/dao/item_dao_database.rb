@@ -6,7 +6,7 @@ class ItemDaoDatabase < ItemDao
   end
 
   def all
-    @connection.query('SELECT * FROM "items"') do |result|
+    @connection.query('SELECT * FROM "item"') do |result|
       result.map do |row|
         { 
           **row,
