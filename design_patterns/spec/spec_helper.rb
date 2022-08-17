@@ -1,4 +1,8 @@
-require 'view'
+require 'creational/abstract_factory/view'
+require 'behavioral/chain_of_responsability/atm'
+require 'behavioral/chain_of_responsability/handler'
+require 'behavioral/chain_of_responsability/bill_handler'
+require "rspec/json_expectations"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
